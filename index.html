@@ -686,7 +686,7 @@
 
   .phase {
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 280px 1fr;
     gap: clamp(2rem, 6vw, 5rem);
     align-items: start;
   }
@@ -1206,13 +1206,15 @@
 
   .about-grid {
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 280px 1fr;
     gap: clamp(2rem, 6vw, 5rem);
     align-items: start;
   }
 
   @media (max-width: 900px) {
     .about-grid { grid-template-columns: 1fr; }
+    .about-grid > div:first-child { order: 2; }
+    .about-body { order: 1; }
   }
 
   .about-body p {
@@ -1881,7 +1883,7 @@
       </div>
       <div class="about-body">
         <p>DigitsUp is a Klaviyo Platinum Partner agency focused on retention. We work with a small roster of brands at a time so the work stays sharp and the founder stays in the room.</p>
-        <p>Michael Grill founded the agency. His background is graphic design and fine art before email and lifecycle marketing, so the work is rooted in design and culture as much as it is in performance. Eleven years in retention. Direct involvement on every account.</p>
+        <p>Michael Grill founded the agency. His background is design and fine art before email and lifecycle marketing, so the work is rooted in design and culture as much as it is in performance. Eleven years in retention. Direct involvement on every account.</p>
         <p>You won't be passed to an account manager. He'll be the one on the calls, in the strategy, and writing the plans.</p>
       </div>
     </div>

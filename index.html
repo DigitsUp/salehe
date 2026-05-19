@@ -433,16 +433,19 @@
 
   .pp-flow {
     display: grid;
-    grid-template-columns: 1fr auto 1fr auto 1fr;
-    gap: 0.5rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
     align-items: stretch;
     margin: 0.5rem 0 1rem;
-    max-width: 720px;
+    max-width: 860px;
   }
 
   @media (max-width: 760px) {
-    .pp-flow { grid-template-columns: 1fr; gap: 0.6rem; }
-    .pp-arrow { display: none; }
+    .pp-flow { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+  }
+
+  @media (max-width: 480px) {
+    .pp-flow { grid-template-columns: 1fr; }
   }
 
   /* ===== TIMELINE / SCOPE ===== */
@@ -1791,21 +1794,18 @@
             <div class="pp-card-name">VIP SMS Drop List</div>
             <p class="pp-card-desc">Sends to buyers not yet subscribed to SMS drop alerts. Invites them into the VIP list — fast, high-engagement, first access to every drop.</p>
           </div>
-          <div class="pp-arrow">→</div>
           <div class="pp-card">
             <span class="pp-card-eyebrow">Email 02</span>
             <div class="pp-card-day">Day 3</div>
             <div class="pp-card-name">Social Share</div>
             <p class="pp-card-desc">Asks the buyer to share what they got. Their unboxing becomes your content, their feed becomes your reach.</p>
           </div>
-          <div class="pp-arrow">→</div>
           <div class="pp-card">
             <span class="pp-card-eyebrow">Email 03</span>
             <div class="pp-card-day">Day 10</div>
             <div class="pp-card-name">Referral</div>
             <p class="pp-card-desc">Invites their circle in with a coded incentive. Friends and family arrive as first-time subscribers.</p>
           </div>
-          <div class="pp-arrow">→</div>
           <div class="pp-card">
             <span class="pp-card-eyebrow">Email 04</span>
             <div class="pp-card-day">Day 21</div>

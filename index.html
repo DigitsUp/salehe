@@ -445,6 +445,125 @@
     .pp-arrow { display: none; }
   }
 
+  /* ===== TIMELINE / SCOPE ===== */
+  .timeline-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  @media (max-width: 900px) {
+    .timeline-grid { grid-template-columns: 1fr; max-width: 480px; }
+  }
+  .timeline-card {
+    background: var(--bg-deeper);
+    border: 1px solid var(--hairline);
+    border-top: 3px solid var(--ink);
+    padding: 1.75rem 1.5rem 1.5rem;
+  }
+  .timeline-card-month {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+  .timeline-card-title {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+    margin-bottom: 1rem;
+    line-height: 1.1;
+  }
+  .timeline-card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .timeline-card-list li {
+    font-family: var(--body);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--ink-muted);
+    padding: 0.3rem 0;
+    border-top: 1px solid var(--hairline);
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+  .timeline-card-list li:first-child { border-top: none; }
+  .timeline-card-list li::before {
+    content: "·";
+    color: var(--accent);
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  /* ===== WELCOME FORM MOCKUP ===== */
+  .welcome-form-mock {
+    margin: 1.75rem 0 1.25rem;
+    max-width: 360px;
+    border: 1px solid var(--hairline);
+    background: var(--bg-deeper);
+    padding: 1.75rem;
+  }
+  .welcome-form-mock-eyebrow {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+  .welcome-form-mock-headline {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+  .welcome-form-mock-field {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--ink);
+    padding: 0.5rem 0;
+    font-family: var(--body);
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    margin-bottom: 1rem;
+    pointer-events: none;
+  }
+  .welcome-form-mock-btn {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--bg);
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.65rem 1.25rem;
+    border: none;
+    cursor: default;
+  }
+  .welcome-form-mock-caption {
+    margin-top: 0.75rem;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
   .pp-card {
     background: var(--bg-deeper);
     border: 1px solid var(--hairline);
@@ -604,18 +723,14 @@
   /* ===== WARM-UP WAVE CARDS ===== */
   .wave-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 0.75rem;
     margin: 2rem 0;
     max-width: 720px;
   }
 
   @media (max-width: 760px) {
-    .wave-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-
-  @media (max-width: 420px) {
-    .wave-grid { grid-template-columns: 1fr; }
+    .wave-grid { grid-template-columns: repeat(3, 1fr); }
   }
 
   .wave-card {
@@ -640,6 +755,8 @@
   .wave-card.w2::before { width: 50%; }
   .wave-card.w3::before { width: 75%; }
   .wave-card.w4::before { width: 100%; }
+  .wave-card.w5::before { width: 83%; }
+  .wave-card.w6::before { width: 100%; }
 
   .wave-card-eyebrow {
     font-family: var(--mono);
@@ -686,7 +803,7 @@
 
   .phase {
     display: grid;
-    grid-template-columns: 280px 1fr;
+    grid-template-columns: 200px 1fr;
     gap: clamp(2rem, 6vw, 5rem);
     align-items: start;
   }
@@ -974,13 +1091,10 @@
 
   .pricing-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
+    max-width: 560px;
     gap: 1.5rem;
     margin-top: 3rem;
-  }
-
-  @media (max-width: 1024px) {
-    .pricing-grid { grid-template-columns: 1fr; max-width: 560px; }
   }
 
   .pricing-card {
@@ -1206,15 +1320,13 @@
 
   .about-grid {
     display: grid;
-    grid-template-columns: 280px 1fr;
+    grid-template-columns: 200px 1fr;
     gap: clamp(2rem, 6vw, 5rem);
     align-items: start;
   }
 
   @media (max-width: 900px) {
     .about-grid { grid-template-columns: 1fr; }
-    .about-grid > div:first-child { order: 2; }
-    .about-body { order: 1; }
   }
 
   .about-body p {
@@ -1504,17 +1616,11 @@
         <p>The list has been sitting for a while. Before any of it goes into Klaviyo, we run it through Kickbox to remove invalid, role-based, and high-risk addresses. This is the single most important step in protecting deliverability before we even start.</p>
         <p class="muted">Pass-through cost, no markup. This is the actual price.</p>
 
-        <div class="options">
-          <div class="option">
-            <div class="option-volume">Up to 750,000 emails</div>
-            <div class="option-price">$2,400</div>
-            <div class="option-meta">One-time validation</div>
-          </div>
+        <div class="options" style="grid-template-columns: 1fr; max-width: 380px;">
           <div class="option recommended">
-            <div class="option-tag">Recommended</div>
-            <div class="option-volume">Up to 1,000,000 emails</div>
-            <div class="option-price">$2,999</div>
-            <div class="option-meta">One-time validation</div>
+            <div class="option-volume">1,000,000 records</div>
+            <div class="option-price">$2,000</div>
+            <div class="option-meta">One-time · includes $1,000 partner discount</div>
           </div>
         </div>
       </div>
@@ -1539,7 +1645,7 @@
           <div class="setup-card inflow">
             <span class="setup-card-eyebrow">Step 01</span>
             <div class="setup-card-action">Import</div>
-            <div class="setup-card-flow">+200K</div>
+            <div class="setup-card-flow">+50K</div>
             <p class="setup-card-desc">Contacts in to Klaviyo</p>
           </div>
           <div class="setup-arrow">→</div>
@@ -1564,10 +1670,10 @@
             <p class="setup-card-desc">Removed from billing tier</p>
           </div>
         </div>
-        <div class="setup-loop">Repeat with the next 200K batch</div>
+        <div class="setup-loop">We rotate 50K users into the active list every 3–5 days, depending on deliverability health.</div>
 
         <p>Through the entire reactivation window we hold the bill at the 200k tier instead of paying for contacts that aren't engaging yet.</p>
-        <p class="muted">Estimated Klaviyo platform cost: ~$2,300/month during the active window.</p>
+        <p class="muted">Estimated Klaviyo platform cost: ~$790/month for 50,000 active contacts.</p>
       </div>
     </div>
   </div>
@@ -1591,27 +1697,39 @@
         <div class="wave-grid">
           <div class="wave-card w1">
             <span class="wave-card-eyebrow">Wave 01</span>
-            <div class="wave-card-timing">Day 1</div>
-            <p class="wave-card-audience">Most engaged in the last 30 days. Gmail only.</p>
-            <div class="wave-card-size">~5K daily</div>
+            <div class="wave-card-timing">Week 1</div>
+            <div class="wave-card-audience">Most engaged — recent openers, clickers</div>
+            <div class="wave-card-size">25,000 contacts</div>
           </div>
           <div class="wave-card w2">
             <span class="wave-card-eyebrow">Wave 02</span>
-            <div class="wave-card-timing">Day 3</div>
-            <p class="wave-card-audience">Expand to 60-day engaged. Yahoo and Apple online.</p>
-            <div class="wave-card-size">~15K daily</div>
+            <div class="wave-card-timing">Week 2</div>
+            <div class="wave-card-audience">Engaged within 90 days</div>
+            <div class="wave-card-size">50,000 contacts</div>
           </div>
           <div class="wave-card w3">
             <span class="wave-card-eyebrow">Wave 03</span>
-            <div class="wave-card-timing">Day 7</div>
-            <p class="wave-card-audience">90-day engaged segments. Outlook brought in.</p>
-            <div class="wave-card-size">~40K daily</div>
+            <div class="wave-card-timing">Week 3</div>
+            <div class="wave-card-audience">Engaged within 180 days</div>
+            <div class="wave-card-size">100,000 contacts</div>
           </div>
           <div class="wave-card w4">
             <span class="wave-card-eyebrow">Wave 04</span>
-            <div class="wave-card-timing">Day 14+</div>
-            <p class="wave-card-audience">Wider segments daily. Cold reactivation begins.</p>
-            <div class="wave-card-size">Scaling to full reach</div>
+            <div class="wave-card-timing">Week 4</div>
+            <div class="wave-card-audience">Longer lapsed — cleaned and validated</div>
+            <div class="wave-card-size">150,000 contacts</div>
+          </div>
+          <div class="wave-card w5">
+            <span class="wave-card-eyebrow">Wave 05</span>
+            <div class="wave-card-timing">Week 5</div>
+            <div class="wave-card-audience">Extended lapsed — deepest cold segment</div>
+            <div class="wave-card-size">200,000 contacts</div>
+          </div>
+          <div class="wave-card w6">
+            <span class="wave-card-eyebrow">Wave 06</span>
+            <div class="wave-card-timing">Week 6</div>
+            <div class="wave-card-audience">Remainder of validated list</div>
+            <div class="wave-card-size">225,000 contacts</div>
           </div>
         </div>
 
@@ -1638,13 +1756,16 @@
             <div class="auto-name">Welcome series</div>
             <div class="auto-desc">For new subscribers. Introduces who you are, what you make, where you're going.</div>
           </li>
+          <div class="welcome-form-mock reveal">
+  <span class="welcome-form-mock-eyebrow">Sign-up form · example</span>
+  <div class="welcome-form-mock-headline">Enter to win a free signed book</div>
+  <input class="welcome-form-mock-field" type="text" value="your@email.com" readonly />
+  <button class="welcome-form-mock-btn">Enter Now</button>
+  <p class="welcome-form-mock-caption">Fuels the welcome series · new subscriber entry point</p>
+</div>
           <li>
-            <div class="auto-name">Abandoned browse</div>
-            <div class="auto-desc">Catches the visitor who looked but didn't add to cart.</div>
-          </li>
-          <li>
-            <div class="auto-name">Abandoned cart</div>
-            <div class="auto-desc">Recovers the visitor who added but didn't check out.</div>
+            <div class="auto-name">Abandoned suite</div>
+            <div class="auto-desc">Covers all three drop-off points: Browse abandonment (looked, didn’t add), Cart abandonment (added, didn’t check out), and Checkout abandonment (started checkout, didn’t complete). Each trigger fires independently.</div>
           </li>
           <li>
             <div class="auto-name">Post-purchase</div>
@@ -1659,26 +1780,33 @@
         <div class="pp-cue">A closer look at post-purchase</div>
         <p class="pp-lead">The most valuable window in the lifecycle. The buyer just said yes. We don't waste that on a receipt.</p>
 
-        <div class="pp-flow">
+        <div class="pp-flow" style="grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;">
           <div class="pp-card">
             <span class="pp-card-eyebrow">Email 01</span>
+            <div class="pp-card-day">Day 1</div>
+            <div class="pp-card-name">VIP SMS Drop List</div>
+            <p class="pp-card-desc">Sends to buyers not yet subscribed to SMS drop alerts. Invites them into the VIP list — fast, high-engagement, first access to every drop.</p>
+          </div>
+          <div class="pp-arrow">→</div>
+          <div class="pp-card">
+            <span class="pp-card-eyebrow">Email 02</span>
             <div class="pp-card-day">Day 3</div>
             <div class="pp-card-name">Social Share</div>
             <p class="pp-card-desc">Asks the buyer to share what they got. Their unboxing becomes your content, their feed becomes your reach.</p>
           </div>
           <div class="pp-arrow">→</div>
           <div class="pp-card">
-            <span class="pp-card-eyebrow">Email 02</span>
+            <span class="pp-card-eyebrow">Email 03</span>
             <div class="pp-card-day">Day 10</div>
             <div class="pp-card-name">Referral</div>
             <p class="pp-card-desc">Invites their circle in with a coded incentive. Friends and family arrive as first-time subscribers.</p>
           </div>
           <div class="pp-arrow">→</div>
           <div class="pp-card">
-            <span class="pp-card-eyebrow">Email 03</span>
+            <span class="pp-card-eyebrow">Email 04</span>
             <div class="pp-card-day">Day 21</div>
             <div class="pp-card-name">Cross-Brand</div>
-            <p class="pp-card-desc">A soft handoff to your wider world. For example: a book buyer on this site who hasn't crossed over to <em>SPUNGE</em> yet gets a thoughtful introduction.</p>
+            <p class="pp-card-desc">A soft handoff to your wider world. For example: a book buyer on this site who hasn’t crossed over to <em>SPUNGE</em> yet gets a thoughtful introduction.</p>
           </div>
         </div>
 
@@ -1736,6 +1864,54 @@
   </div>
 </section>
 
+<!-- ===== TIMELINE / SCOPE ===== -->
+<section class="phase-section hairline">
+  <div class="container">
+    <div class="phase">
+      <div class="phase-marker">
+        <div class="phase-number">·</div>
+        <div class="phase-marker-label">Scope</div>
+      </div>
+      <div class="phase-body">
+        <h2 class="phase-title">What gets built, and when.</h2>
+        <p>Three months. Clear deliverables at each stage. Nothing ambiguous about what you’re getting or when.</p>
+        <div class="timeline-grid reveal">
+          <div class="timeline-card">
+            <span class="timeline-card-month">Month 01</span>
+            <div class="timeline-card-title">Foundation</div>
+            <ul class="timeline-card-list">
+              <li>Welcome series + sign-up form</li>
+              <li>Abandoned suite (browse, cart, checkout)</li>
+              <li>List cleaning · warm-up part 1</li>
+              <li>Giveaway setup</li>
+              <li>Campaign Drop 1</li>
+            </ul>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-card-month">Month 02</span>
+            <div class="timeline-card-title">Expansion</div>
+            <ul class="timeline-card-list">
+              <li>Post-purchase series (all 4 emails)</li>
+              <li>Campaign Drop 2</li>
+              <li>Campaign Drop 3</li>
+              <li>List cleaning · warm-up part 2</li>
+            </ul>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-card-month">Month 03</span>
+            <div class="timeline-card-title">Scale</div>
+            <ul class="timeline-card-list">
+              <li>Campaign Drop 4</li>
+              <li>Campaign Drop 5</li>
+              <li>90-Day Report</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== PRICING ===== -->
 <section class="pricing-section hairline">
   <div class="container">
@@ -1746,70 +1922,6 @@
     <div class="pricing-grid">
 
       <div class="pricing-card">
-        <div class="pricing-card-label">Option 01</div>
-        <div class="pricing-card-name">Controlled<br>Warm-Up</div>
-        <p class="pricing-card-strategy">Lower-risk entry, phased over 90 days. For when measured execution matters more than speed-to-impact.</p>
-
-        <span class="pricing-card-fee-label">Monthly retainer</span>
-        <div class="pricing-card-fee">$2,500<span style="font-size: 1.25rem; color: var(--ink-muted);">/mo</span></div>
-        <div class="pricing-card-fee-detail">No upfront · 90-day commitment</div>
-
-        <ul class="pricing-card-ops">
-          <li><strong style="font-weight:600;">Phased infrastructure build</strong> across the full 90 days</li>
-          <li>Lower upfront investment and operational intensity</li>
-          <li>Advanced flows may shift to month 2 or 3</li>
-        </ul>
-
-        <ul class="includes-list">
-          <li>Full Klaviyo setup</li>
-          <li>Domain and deliverability warm-up</li>
-          <li>All four automations</li>
-          <li>Four drop launch sequences</li>
-          <li>Ongoing campaign management</li>
-          <li>Reporting and check-ins</li>
-        </ul>
-        <div class="pricing-breakdown">
-          <div class="breakdown-line"><span>List clean (1M)</span><span>$2,999 once</span></div>
-          <div class="breakdown-line"><span>Klaviyo platform</span><span>~$2,300/mo</span></div>
-          <div class="breakdown-line"><span>DigitsUp retainer</span><span>$2,500/mo</span></div>
-          <div class="breakdown-line total"><span>90-day investment</span><span>~$17,399</span></div>
-        </div>
-      </div>
-
-      <div class="pricing-card">
-        <div class="pricing-card-label">Option 02</div>
-        <div class="pricing-card-name">Aggressive<br>Reactivation</div>
-        <p class="pricing-card-strategy">Maximum velocity. Most flows live within 30 days. For when the priority is hitting the inbox at scale, fast.</p>
-
-        <span class="pricing-card-fee-label">Accelerated implementation</span>
-        <div class="pricing-card-fee">$5,500</div>
-        <div class="pricing-card-fee-detail">One-time · then $1,000/mo from month 2</div>
-
-        <ul class="pricing-card-ops">
-          <li><strong style="font-weight:600;">Full flow stack built in 30 days</strong></li>
-          <li>Compressed execution timeline drives higher upfront cost</li>
-          <li>Larger active contact volume = higher Klaviyo platform spend</li>
-        </ul>
-
-        <ul class="includes-list">
-          <li>Full Klaviyo setup</li>
-          <li>Domain and deliverability warm-up</li>
-          <li>All four automations</li>
-          <li>Four drop launch sequences</li>
-          <li>Month one maintenance included</li>
-          <li>Ongoing maintenance from month two</li>
-        </ul>
-        <div class="pricing-breakdown">
-          <div class="breakdown-line"><span>List clean (1M)</span><span>$2,999 once</span></div>
-          <div class="breakdown-line"><span>Klaviyo platform</span><span>~$3,500/mo</span></div>
-          <div class="breakdown-line"><span>Accelerated implementation</span><span>$5,500 once</span></div>
-          <div class="breakdown-line"><span>DigitsUp maintenance</span><span>$1,000/mo (mo 2+)</span></div>
-          <div class="breakdown-line total"><span>90-day investment</span><span>~$20,999</span></div>
-        </div>
-      </div>
-
-      <div class="pricing-card strategic">
-        <div class="strategic-tag">Recommended</div>
         <div class="pricing-card-label">Option 03</div>
         <div class="pricing-card-name">Scalable<br>Growth Model</div>
         <p class="pricing-card-strategy">Same accelerated speed as Option 02, smarter scaling model. Begins with ~50K engaged profiles. Holds platform spend down while sender reputation builds.</p>
@@ -1860,10 +1972,14 @@
         <div class="phase-marker-label">Honest</div>
       </div>
       <div class="phase-body">
-        <h2 class="phase-title">A note on what could go wrong.</h2>
-        <p>Cold lists are unpredictable. We can clean them carefully, warm them properly, and they still sometimes don't engage at the level needed to protect a sender reputation long term. If that's where we land thirty days in, you'll hear it directly from us. Not in a quarterly review. Not buried in a report.</p>
-        <p>There's a version of this where we stop the cold sends, finish the foundation, and you grow the list organically from there. A giveaway. A post. A campaign driving sign-ups to a clean welcome flow. You have the reach to do that, and starting from clean organic engagement is a faster path to sustainable deliverability than fighting through a list that doesn't want to engage.</p>
-        <p>We'd rather tell you that on day forty than burn through the budget and walk away on day ninety. The relationship is the point.</p>
+        <h2 class="phase-title">A note on what could go wrong — and how we fix it.</h2>
+
+        <p style="font-weight: 600; color: var(--ink); margin-bottom: 0.5rem; font-size: 1rem; font-family: var(--mono); letter-spacing: 0.1em; text-transform: uppercase;">What can go wrong</p>
+        <p>Cold lists are unpredictable. We can clean them carefully, warm them properly, and they still sometimes don’t engage at the level needed to protect a sender reputation long term. If that’s where we land thirty days in, you’ll hear it directly from us. Not in a quarterly review. Not buried in a report.</p>
+        <p>There’s a version of this where we stop the cold sends, finish the foundation, and you grow the list organically from there. A giveaway. A post. A campaign driving sign-ups to a clean welcome flow. You have the reach to do that, and starting from clean organic engagement is a faster path to sustainable deliverability than fighting through a list that doesn’t want to engage.</p>
+
+        <p style="font-weight: 600; color: var(--ink); margin-top: 2rem; margin-bottom: 0.5rem; font-size: 1rem; font-family: var(--mono); letter-spacing: 0.1em; text-transform: uppercase;">How we fix it</p>
+        <p>Split the list by domain provider — Gmail, Yahoo, Outlook — to isolate where deliverability issues are coming from and contain them. Leverage your social reach for organic fresh signups: you have the audience to build clean engagement fast. Additionally, using a third-party ESP to send the cold list from can help preserve your new Klaviyo account while we assess performance. We’ll pivot once we have real data and insights. The plan adapts. That’s the point.</p>
       </div>
     </div>
   </div>
@@ -1883,7 +1999,7 @@
       </div>
       <div class="about-body">
         <p>DigitsUp is a Klaviyo Platinum Partner agency focused on retention. We work with a small roster of brands at a time so the work stays sharp and the founder stays in the room.</p>
-        <p>Michael Grill founded the agency. His background is design and fine art before email and lifecycle marketing, so the work is rooted in design and culture as much as it is in performance. Eleven years in retention. Direct involvement on every account.</p>
+        <p>Michael Grill founded the agency. His background is graphic design and fine art before email and lifecycle marketing, so the work is rooted in design and culture as much as it is in performance. Eleven years in retention. Direct involvement on every account.</p>
         <p>You won't be passed to an account manager. He'll be the one on the calls, in the strategy, and writing the plans.</p>
       </div>
     </div>

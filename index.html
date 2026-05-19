@@ -604,8 +604,8 @@
 
   .pp-card-desc {
     font-family: var(--body);
-    font-size: 0.68rem;
-    line-height: 1.5;
+    font-size: 0.72rem;
+    line-height: 1.45;
     color: var(--ink-muted);
     margin-top: 0.45rem;
   }
@@ -1091,10 +1091,14 @@
 
   .pricing-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    max-width: 560px;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 960px;
     gap: 1.5rem;
     margin-top: 3rem;
+  }
+
+  @media (max-width: 760px) {
+    .pricing-grid { grid-template-columns: 1fr; }
   }
 
   .pricing-card {
@@ -1948,78 +1952,40 @@
     <div class="pricing-grid">
 
       <div class="pricing-card">
-        <div class="pricing-card-name">Scalable<br>Growth Model</div>
-        <p class="pricing-card-strategy">Begins with ~50K engaged profiles. Holds platform spend down while sender reputation builds. Scales as engagement signals justify it.</p>
-
-        <span class="pricing-card-fee-label">Management &amp; Buildout</span>
-        <div class="pricing-card-fee">$3,500</div>
-        <div class="pricing-card-fee-detail">One-time · then $1,250/mo as list scales</div>
-
-        <ul class="pricing-card-ops">
-          <li><strong style="font-weight:600;">30-day implementation pace</strong></li>
-          <li>Starts at ~50K engaged profiles, expands as engagement signals justify it</li>
-          <li>Lowest Klaviyo platform spend during reactivation</li>
-          <li>Best long-term deliverability and cost balance</li>
-        </ul>
-
-        <ul class="includes-list">
-          <li>Full Klaviyo setup</li>
-          <li>Domain and deliverability warm-up</li>
-          <li>External list cleaning strategy</li>
-          <li>Progressive audience importing</li>
-          <li>All four automations</li>
-          <li>Four drop launch sequences</li>
-          <li>Engagement monitoring and scaling plan</li>
-        </ul>
+        <div class="pricing-card-label">Month 01</div>
+        <div class="pricing-card-name">Foundation</div>
         <div class="pricing-breakdown">
-          <div class="breakdown-line"><span>List clean (1M)</span><span>$1,999 once</span></div>
-          <div class="breakdown-line"><span>Klaviyo platform (50K)</span><span>~$790/mo</span></div>
-          <div class="breakdown-line"><span>Management &amp; buildout</span><span>$3,500 once</span></div>
-          <div class="breakdown-line"><span>DigitsUp operations</span><span>$1,250/mo</span></div>
-          <div class="breakdown-line total"><span>90-day investment</span><span>~$11,619</span></div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="pricing-grid" style="margin-top: 3.5rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
-
-      <div class="pricing-card">
-        <span class="pricing-card-fee-label">Month 01</span>
-        <div class="pricing-card-fee" style="font-size: clamp(2rem, 4vw, 2.75rem);">$7,539</div>
-        <div class="pricing-card-fee-detail">Foundation month — one-time costs apply</div>
-        <div class="pricing-breakdown" style="margin-top: 1.5rem;">
-          <div class="breakdown-line"><span>List clean (1M)</span><span>$1,999 once</span></div>
+          <div class="breakdown-line"><span>List clean (1M records)</span><span>$1,999 once</span></div>
           <div class="breakdown-line"><span>Setup &amp; buildout</span><span>$3,500 once</span></div>
-          <div class="breakdown-line"><span>Klaviyo platform</span><span>$790</span></div>
-          <div class="breakdown-line"><span>DigitsUp operations</span><span>$1,250</span></div>
-          <div class="breakdown-line total"><span>Month 01 total</span><span>$7,539</span></div>
+          <div class="breakdown-line"><span>Klaviyo platform (50K)</span><span>$790/mo</span></div>
+          <div class="breakdown-line"><span>DigitsUp operations</span><span>$1,250/mo</span></div>
+          <div class="breakdown-line total"><span>Monthly total</span><span>$7,539</span></div>
         </div>
       </div>
 
       <div class="pricing-card">
-        <span class="pricing-card-fee-label">Month 02</span>
-        <div class="pricing-card-fee" style="font-size: clamp(2rem, 4vw, 2.75rem);">$2,040</div>
-        <div class="pricing-card-fee-detail">Recurring — no one-time fees</div>
-        <div class="pricing-breakdown" style="margin-top: 1.5rem;">
-          <div class="breakdown-line"><span>Klaviyo platform</span><span>$790</span></div>
-          <div class="breakdown-line"><span>DigitsUp operations</span><span>$1,250</span></div>
-          <div class="breakdown-line total"><span>Month 02 total</span><span>$2,040</span></div>
+        <div class="pricing-card-label">Month 02</div>
+        <div class="pricing-card-name">Expansion</div>
+        <div class="pricing-breakdown">
+          <div class="breakdown-line"><span>Klaviyo platform (50K)</span><span>$790/mo</span></div>
+          <div class="breakdown-line"><span>DigitsUp operations</span><span>$1,250/mo</span></div>
+          <div class="breakdown-line total"><span>Monthly total</span><span>$2,040</span></div>
         </div>
       </div>
 
       <div class="pricing-card">
-        <span class="pricing-card-fee-label">Month 03</span>
-        <div class="pricing-card-fee" style="font-size: clamp(2rem, 4vw, 2.75rem);">$2,040</div>
-        <div class="pricing-card-fee-detail">Recurring — same as Month 02</div>
-        <div class="pricing-breakdown" style="margin-top: 1.5rem;">
-          <div class="breakdown-line"><span>Klaviyo platform</span><span>$790</span></div>
-          <div class="breakdown-line"><span>DigitsUp operations</span><span>$1,250</span></div>
-          <div class="breakdown-line total"><span>Month 03 total</span><span>$2,040</span></div>
+        <div class="pricing-card-label">Month 03</div>
+        <div class="pricing-card-name">Scale</div>
+        <div class="pricing-breakdown">
+          <div class="breakdown-line"><span>Klaviyo platform (50K)</span><span>$790/mo</span></div>
+          <div class="breakdown-line"><span>DigitsUp operations</span><span>$1,250/mo</span></div>
+          <div class="breakdown-line total"><span>Monthly total</span><span>$2,040</span></div>
         </div>
       </div>
 
     </div>
+
+    <p style="margin-top: 1.75rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--ink); border-top: 1px solid var(--hairline); padding-top: 1.25rem; max-width: 960px;">Total 90-day investment · ~$11,619</p>
 
     <p class="pricing-footnote">
       Klaviyo platform cost goes directly to Klaviyo and scales with the number of active profiles. This model holds platform cost down by starting with engaged contacts only and expanding as deliverability data justifies it. List validation is a pass-through cost paid to Kickbox at no markup.

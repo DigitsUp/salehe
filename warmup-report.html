@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>30 Days. A List Built From Scratch. — Salehe Bembury × DigitsUp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #0A0A0A;
+      --surface: #141414;
+      --surface-2: #1A1A1A;
+      --border: #242424;
+      --border-subtle: #1E1E1E;
+      --text: #F0EDE8;
+      --text-muted: #888;
+      --text-dim: #555;
+      --accent: #C8B89A;
+      --accent-dim: rgba(200, 184, 154, 0.15);
+      --green-check: #7AAF89;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Inter', system-ui, sans-serif;
+    }
+
+    html {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ─── HERO ─────────────────────────────────── */
+    .hero {
+      padding: 80px 0 72px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      padding: 5px 12px;
+      margin-bottom: 36px;
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(42px, 7vw, 80px);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .hero-meta span {
+      font-size: 12px;
+      color: var(--text-dim);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .hero-meta span strong {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* ─── SECTIONS ─────────────────────────────── */
+    section {
+      padding: 64px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 28px;
+    }
+
+    h2 {
+      font-family: var(--serif);
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 28px;
+    }
+
+    h3 {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 16px;
+      margin-top: 40px;
+    }
+
+    p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.75;
+      max-width: 680px;
+      margin-bottom: 16px;
+    }
+
+    /* ─── STAT CARDS ───────────────────────────── */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 36px 0;
+    }
+
+    .stat-grid.two-col {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stat-grid.four-col {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .stat-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 28px 24px;
+    }
+
+    .stat-card .number {
+      font-family: var(--serif);
+      font-size: 48px;
+      font-weight: 300;
+      line-height: 1;
+      color: var(--text);
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .stat-card .number.accent {
+      color: var(--accent);
+    }
+
+    .stat-card .label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 6px;
+    }
+
+    .stat-card .context {
+      font-size: 12px;
+      color: var(--text-dim);
+      line-height: 1.5;
+      margin-top: 8px;
+    }
+
+    .stat-card .context.good {
+      color: var(--green-check);
+    }
+
+    /* ─── CALLOUT ──────────────────────────────── */
+    .callout {
+      background: var(--accent-dim);
+      border-left: 2px solid var(--accent);
+      padding: 20px 24px;
+      margin: 28px 0;
+    }
+
+    .callout p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: none;
+    }
+
+    .callout p strong {
+      color: var(--text);
+    }
+
+    .callout-big {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 32px;
+      margin: 32px 0;
+      text-align: center;
+    }
+
+    .callout-big .quote {
+      font-family: var(--serif);
+      font-size: clamp(22px, 3vw, 34px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+
+    .callout-big .attribution {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    /* ─── WARMUP BAR CHART ─────────────────────── */
+    .bar-chart {
+      margin: 36px 0;
+    }
+
+    .bar-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 10px;
+    }
+
+    .bar-date {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      width: 52px;
+      flex-shrink: 0;
+      text-align: right;
+    }
+
+    .bar-wrap {
+      flex: 1;
+      height: 28px;
+      background: var(--surface-2);
+      border: 1px solid var(--border-subtle);
+      position: relative;
+      overflow: visible;
+    }
+
+    .bar-fill {
+      height: 100%;
+      background: var(--accent);
+      opacity: 0.85;
+      position: relative;
+      transition: width 0.3s ease;
+    }
+
+    .bar-fill.highlight {
+      opacity: 1;
+    }
+
+    .bar-info {
+      display: flex;
+      flex-direction: column;
+      width: 180px;
+      flex-shrink: 0;
+    }
+
+    .bar-count {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .bar-label {
+      font-size: 10px;
+      color: var(--text-dim);
+      line-height: 1.4;
+    }
+
+    .bar-label .check {
+      color: var(--green-check);
+    }
+
+    .bar-chart-total {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .bar-chart-total .total-label {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    .bar-chart-total .total-num {
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--accent);
+    }
+
+    /* ─── TABLES ───────────────────────────────── */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 28px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    thead th {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      padding: 10px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    tbody tr:nth-child(odd) {
+      background: var(--surface);
+    }
+
+    tbody tr:nth-child(even) {
+      background: #111;
+    }
+
+    tbody td {
+      padding: 12px 16px;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border-subtle);
+      white-space: nowrap;
+    }
+
+    tbody td:first-child {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    tbody td .good {
+      color: var(--green-check);
+      font-weight: 500;
+    }
+
+    tbody td .accent {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* ─── SETUP LIST ───────────────────────────── */
+    .setup-list {
+      list-style: none;
+      margin: 24px 0;
+    }
+
+    .setup-list li {
+      display: flex;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      align-items: flex-start;
+    }
+
+    .setup-list li:first-child {
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .setup-list .check-icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      background: rgba(122, 175, 137, 0.12);
+      border: 1px solid rgba(122, 175, 137, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+
+    .setup-list .check-icon svg {
+      width: 10px;
+      height: 10px;
+    }
+
+    .setup-list .item-text {
+      flex: 1;
+    }
+
+    .setup-list .item-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .setup-list .item-sub {
+      font-size: 12px;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+
+    /* ─── FLOWS TABLE ──────────────────────────── */
+    .flows-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin: 28px 0;
+    }
+
+    .flow-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 20px 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .flow-status {
+      flex-shrink: 0;
+      width: 8px;
+      height: 8px;
+      background: var(--green-check);
+      border-radius: 50%;
+      margin-top: 6px;
+    }
+
+    .flow-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .flow-note {
+      font-size: 12px;
+      color: var(--text-dim);
+      line-height: 1.4;
+    }
+
+    /* ─── NEXT 90 DAYS ──────────────────────────── */
+    .timeline {
+      margin: 28px 0;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      align-items: flex-start;
+    }
+
+    .timeline-item:first-child {
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .timeline-date {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      width: 80px;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+
+    .timeline-content .title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .timeline-content .desc {
+      font-size: 12px;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+
+    /* ─── CLOSING ───────────────────────────────── */
+    .closing {
+      padding: 80px 0 40px;
+      text-align: center;
+    }
+
+    .closing h2 {
+      font-family: var(--serif);
+      font-size: clamp(32px, 5vw, 60px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+
+    .closing p {
+      font-size: 13px;
+      color: var(--text-dim);
+      max-width: 480px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    /* ─── FOOTER ────────────────────────────────── */
+    footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: gap;
+    }
+
+    footer span {
+      font-size: 11px;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ─── RESPONSIVE ────────────────────────────── */
+    @media (max-width: 680px) {
+      .stat-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stat-grid.four-col {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .flows-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bar-info {
+        width: 120px;
+      }
+
+      .bar-label {
+        display: none;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .stat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-grid.two-col {
+        grid-template-columns: 1fr;
+      }
+
+      body {
+        padding: 0 16px 60px;
+      }
+
+      .hero {
+        padding: 52px 0 48px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════════ -->
+  <header class="hero">
+    <div class="badge">Confidential · For Internal Review</div>
+    <p class="hero-sub">Salehe Bembury × DigitsUp — Email Program Launch Report</p>
+    <h1>30 Days.<br><em>A List Built From Scratch.</em></h1>
+    <div class="hero-meta">
+      <span><strong>Period</strong> &nbsp;Jun 3 – Jun 14, 2026</span>
+      <span><strong>Prepared by</strong> &nbsp;DigitsUp</span>
+      <span><strong>Status</strong> &nbsp;Warmup Complete</span>
+    </div>
+  </header>
+
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 1 — THE SETUP
+  ══════════════════════════════════════════════ -->
+  <section>
+    <p class="section-label">Section 01</p>
+    <h2>Before the First Send,<br>the Foundation Was Built Right.</h2>
+
+    <p>The Salehe Bembury list is 5–8 years old. 907,502 email addresses — accumulated across drops, collaborations, and organic sign-ups. Never cleaned. Never structured. A goldmine, if handled correctly. A reputation killer, if not.</p>
+    <p>Before a single send, every one of those addresses was processed, verified, and either activated or suppressed.</p>
+
+    <div class="stat-grid three-col" style="grid-template-columns: repeat(3,1fr); margin-bottom: 0;">
+      <div class="stat-card">
+        <div class="label">Starting List</div>
+        <div class="number">907k</div>
+        <div class="context">Raw Shopify contacts — 5–8 years of history</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Verified via Kickbox</div>
+        <div class="number accent">667k</div>
+        <div class="context">26% removed immediately — bounces, spam traps, invalids</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Launch Audience</div>
+        <div class="number">79,337</div>
+        <div class="context">Paying customers — the highest-trust segment. First to receive.</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 12px;">
+      <p>The remaining <strong>588,000+ leads</strong> were suppressed per Klaviyo's 90-day policy — not deleted, not lost. Protecting sender reputation during warmup means unlocking this audience correctly, not burning it.</p>
+    </div>
+
+    <ul class="setup-list">
+      <li>
+        <div class="check-icon">
+          <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 5.5L4 8L8.5 2.5" stroke="#7AAF89" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="item-text">
+          <div class="item-title">Dedicated Sending Domain</div>
+          <div class="item-sub">DKIM, SPF, DMARC configured from scratch. Domain reputation isolated and protected.</div>
+        </div>
+      </li>
+      <li>
+        <div class="check-icon">
+          <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 5.5L4 8L8.5 2.5" stroke="#7AAF89" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="item-text">
+          <div class="item-title">Klaviyo Account Architecture</div>
+          <div class="item-sub">Flows built, segments structured, Shopify sync connected. Ready before day one.</div>
+        </div>
+      </li>
+      <li>
+        <div class="check-icon">
+          <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 5.5L4 8L8.5 2.5" stroke="#7AAF89" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="item-text">
+          <div class="item-title">Automation Flows Live at Launch</div>
+          <div class="item-sub">Welcome Series, Abandoned Cart, Abandoned Checkout, Browse Abandonment — all live before the first campaign send.</div>
+        </div>
+      </li>
+      <li>
+        <div class="check-icon">
+          <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 5.5L4 8L8.5 2.5" stroke="#7AAF89" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="item-text">
+          <div class="item-title">List Cleaning + Segmentation</div>
+          <div class="item-sub">79,337 paying customers isolated as the launch segment. The highest-value, highest-trust audience went first.</div>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 2 — THE WARMUP STRATEGY
+  ══════════════════════════════════════════════ -->
+  <section>
+    <p class="section-label">Section 02</p>
+    <h2>The Warmup Strategy</h2>
+
+    <p>ISPs don't know new sending domains. They watch for signals: who opens, who clicks, who marks as spam. The warmup ramp was designed to prove trust before scaling — and to adapt when strategy shifted.</p>
+    <p>After the first Vellum warmup sends, Fardad wanted to pivot toward a giveaway — less product pressure, more audience engagement while managing stock. The strategy adapted in real-time, weaving giveaway mechanics into the warmup sequence.</p>
+
+    <div class="callout">
+      <p><strong>The Plan:</strong> Start small with highest-trust customers. Build engagement signal. Scale up as ISPs confirm deliverability. Complete warmup in under 2 weeks.</p>
+    </div>
+
+    <div class="bar-chart">
+      <!-- Max volume = 50,820 — used for bar width scaling -->
+
+      <div class="bar-row">
+        <div class="bar-date">Jun 3</div>
+        <div class="bar-wrap">
+          <div class="bar-fill" style="width: calc(1076 / 50820 * 100%)"></div>
+        </div>
+        <div class="bar-info">
+          <span class="bar-count">1,076</span>
+          <span class="bar-label">Warmup Group A — Vellum drop</span>
+        </div>
+      </div>
+
+      <div class="bar-row">
+        <div class="bar-date">Jun 4</div>
+        <div class="bar-wrap">
+          <div class="bar-fill" style="width: calc(2518 / 50820 * 100%)"></div>
+        </div>
+        <div class="bar-info">
+          <span class="bar-count">2,518</span>
+          <span class="bar-label">Warmup Group B — Vellum drop</span>
+        </div>
+      </div>
+
+      <div class="bar-row">
+        <div class="bar-date">Jun 5</div>
+        <div class="bar-wrap">
+          <div class="bar-fill" style="width: calc(5000 / 50820 * 100%)"></div>
+        </div>
+        <div class="bar-info">
+          <span class="bar-count">5,000</span>
+          <span class="bar-label">Giveaway pivot begins</span>
+        </div>
+      </div>
+
+      <div class="bar-row">
+        <div class="bar-date">Jun 6</div>
+        <div class="bar-wrap">
+          <div class="bar-fill" style="width: calc(11687 / 50820 * 100%)"></div>
+        </div>
+        <div class="bar-info">
+          <span class="bar-count">11,687</span>
+          <span class="bar-label">Giveaway — scaled up</span>
+        </div>
+      </div>
+
+      <div class="bar-row">
+        <div class="bar-date">Jun 7</div>
+        <div class="bar-wrap">
+          <div class="bar-fill" style="width: calc(23485 / 50820 * 100%)"></div>
+        </div>
+        <div class="bar-info">
+          <span class="bar-count">23,485</span>
+          <span class="bar-label">Giveaway — full ramp</span>
+        </div>
+      </div>
+
+      <div class="bar-row">
+        <div class="bar-date">Jun 8</div>
+        <div class="bar-wrap">
+          <div class="bar-fill highlight" style="width: calc(37647 / 50820 * 100%)"></div>
+        </div>
+        <div class="bar-info">
+          <span class="bar-count">37,647</span>
+          <span class="bar-label">Giveaway — largest warmup batch</span>
+        </div>
+      </div>
+
+      <div class="bar-row">
+        <div class="bar-date">Jun 9</div>
+        <div class="bar-wrap">
+          <div class="bar-fill" style="width: calc(14443 / 50820 * 100%)"></div>
+        </div>
+        <div class="bar-info">
+          <span class="bar-count">14,443</span>
+          <span class="bar-label">Final warmup group &nbsp;<span class="check">✓ Complete</span></span>
+        </div>
+      </div>
+
+      <div class="bar-row">
+        <div class="bar-date">Jun 12</div>
+        <div class="bar-wrap">
+          <div class="bar-fill highlight" style="width: 100%"></div>
+        </div>
+        <div class="bar-info">
+          <span class="bar-count">50,820</span>
+          <span class="bar-label">Last Call — Vellum size-specific</span>
+        </div>
+      </div>
+
+      <div class="bar-chart-total">
+        <span class="total-label">Total Emails Sent — 12 Days</span>
+        <span class="total-num">146,676</span>
+      </div>
+    </div>
+
+    <div class="callout-big">
+      <div class="quote">"By June 9, warmup was complete.<br>The full customer list was warm and ready."</div>
+      <div class="attribution">12 days · 8 sends · ISP trust established</div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 3 — PERFORMANCE NUMBERS
+  ══════════════════════════════════════════════ -->
+  <section>
+    <p class="section-label">Section 03</p>
+    <h2>The Numbers</h2>
+
+    <p>These are 30-day figures from a brand-new email program, sending to a list that had never received a campaign. This is what execution looks like.</p>
+
+    <!-- Revenue -->
+    <h3>Revenue</h3>
+    <div class="stat-grid two-col">
+      <div class="stat-card">
+        <div class="label">Klaviyo-Attributed Revenue</div>
+        <div class="number accent">$7,207</div>
+        <div class="context">From email campaigns + automated flows combined</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Total Store Revenue (30 Days)</div>
+        <div class="number">$14,082</div>
+        <div class="context good">Email's share: ~51% of all store revenue</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p>Email driving <strong>51% of store revenue in month one</strong> is typically a 3–6 month milestone. The combination of clean segmentation, pre-built flows, and strategic warmup compressed that timeline significantly.</p>
+    </div>
+
+    <div class="stat-grid" style="grid-template-columns: repeat(2, 1fr); margin-top: 12px;">
+      <div class="stat-card">
+        <div class="label">Campaign Revenue Share</div>
+        <div class="number">85%</div>
+        <div class="context">Driven by campaign sends during warmup</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Flow Revenue Share</div>
+        <div class="number">15%</div>
+        <div class="context">Abandoned Checkout was the top-performing flow</div>
+      </div>
+    </div>
+
+    <!-- Engagement -->
+    <h3>Engagement</h3>
+    <div class="stat-grid four-col">
+      <div class="stat-card">
+        <div class="label">Emails Sent</div>
+        <div class="number">146k</div>
+        <div class="context">12 send days, full customer base</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Unique Opens</div>
+        <div class="number">62,841</div>
+        <div class="context">43% of total sent</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Unique Clicks</div>
+        <div class="number">8,253</div>
+        <div class="context">5.6% average click rate</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Giveaway Entries</div>
+        <div class="number">~6k</div>
+        <div class="context">Email + organic sign-up combined</div>
+      </div>
+    </div>
+
+    <div class="stat-grid four-col">
+      <div class="stat-card">
+        <div class="label">Avg Open Rate</div>
+        <div class="number accent">42.8%</div>
+        <div class="context good">Industry avg: 20–25%</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Avg Click Rate</div>
+        <div class="number accent">5.6%</div>
+        <div class="context good">Industry avg: 2–3%</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Bounce Rate</div>
+        <div class="number">0.38%</div>
+        <div class="context good">Threshold: &lt;0.5% ✓ Clean</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Unsub Rate</div>
+        <div class="number">0.99%</div>
+        <div class="context">Expected during warmup — see note</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p><strong>On the unsub rate:</strong> The 0.99% overall figure includes the largest warmup sends (Jun 8–9) reaching the oldest customer segments. This is expected — and healthy. The list is self-selecting its most engaged subscribers. Post-warmup unsub rates normalized. The 8,075 unsubs on Jun 1–2 were a pre-launch suppression sweep, not from campaign sends.</p>
+    </div>
+
+    <!-- Per-Send Breakdown -->
+    <h3>Per-Send Breakdown</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Sent</th>
+            <th>Open Rate</th>
+            <th>Click Rate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Jun 3</td>
+            <td>1,076</td>
+            <td class="accent">39.6%</td>
+            <td class="accent">10.7%</td>
+          </tr>
+          <tr>
+            <td>Jun 4</td>
+            <td>2,518</td>
+            <td>38.5%</td>
+            <td>5.8%</td>
+          </tr>
+          <tr>
+            <td>Jun 5</td>
+            <td>5,000</td>
+            <td>33.9%</td>
+            <td>4.2%</td>
+          </tr>
+          <tr>
+            <td>Jun 6</td>
+            <td>11,687</td>
+            <td>41.0%</td>
+            <td>7.9%</td>
+          </tr>
+          <tr>
+            <td>Jun 7</td>
+            <td>23,485</td>
+            <td>41.1%</td>
+            <td>7.2%</td>
+          </tr>
+          <tr>
+            <td>Jun 8</td>
+            <td>37,647</td>
+            <td>40.8%</td>
+            <td>5.9%</td>
+          </tr>
+          <tr>
+            <td>Jun 9</td>
+            <td>14,443</td>
+            <td class="accent">79.8%</td>
+            <td>6.0%</td>
+          </tr>
+          <tr>
+            <td>Jun 12</td>
+            <td>50,820</td>
+            <td>36.2%</td>
+            <td>4.1%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 4 — CAMPAIGN SPOTLIGHT
+  ══════════════════════════════════════════════ -->
+  <section>
+    <p class="section-label">Section 04</p>
+    <h2>Campaign Spotlight</h2>
+
+    <h3>The Giveaway</h3>
+    <p>To avoid selling through stock ahead of planned drops, the warmup strategy shifted mid-program to a giveaway mechanic — win a signed Salehe Bembury book, no purchase necessary.</p>
+
+    <div class="stat-grid" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="stat-card">
+        <div class="label">Giveaway Entries</div>
+        <div class="number accent">~6,000</div>
+        <div class="context">Email + organic sign-up form</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Avg Click Rate (Giveaway Sends)</div>
+        <div class="number">7–10%</div>
+        <div class="context">3–5× industry average</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Surprise Result</div>
+        <div class="number">Books Sold</div>
+        <div class="context">Customers bought even knowing they could win one free</div>
+      </div>
+    </div>
+
+    <h3>Last Call — Vellum Nitro (Jun 12)</h3>
+    <p>48 pairs remained. Rather than a broad blast, the strategy went surgical: each recipient only saw CTAs for shoe sizes still in their size. Hyper-targeted, zero wasted spend.</p>
+
+    <div class="callout-big">
+      <div class="quote">"Precision over volume."</div>
+      <div class="attribution">50,820 sent → 36.2% open → 4.1% click → 13 orders within hours</div>
+    </div>
+
+    <div class="stat-grid" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="stat-card">
+        <div class="label">Sent</div>
+        <div class="number">50,820</div>
+        <div class="context">Full customer base</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Segmented By</div>
+        <div class="number accent">Size</div>
+        <div class="context">Each recipient: only saw CTAs for their in-stock size</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Orders Within Hours</div>
+        <div class="number">13</div>
+        <div class="context">From 48 remaining pairs</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 5 — FLOWS LIVE
+  ══════════════════════════════════════════════ -->
+  <section>
+    <p class="section-label">Section 05</p>
+    <h2>Automation Running 24/7</h2>
+
+    <p>Every new subscriber. Every cart abandonment. Every browse session. There's now a system working in the background — automatically — that wasn't there 30 days ago.</p>
+
+    <div class="flows-grid">
+      <div class="flow-card">
+        <div class="flow-status"></div>
+        <div>
+          <div class="flow-name">Welcome Series</div>
+          <div class="flow-note">4-email sequence — brand intro, books, Sponge, personal from Salehe</div>
+        </div>
+      </div>
+      <div class="flow-card">
+        <div class="flow-status"></div>
+        <div>
+          <div class="flow-name">Abandoned Checkout</div>
+          <div class="flow-note">Top-performing flow for revenue attribution</div>
+        </div>
+      </div>
+      <div class="flow-card">
+        <div class="flow-status"></div>
+        <div>
+          <div class="flow-name">Abandoned Cart</div>
+          <div class="flow-note">Catching high-intent customers before they leave</div>
+        </div>
+      </div>
+      <div class="flow-card">
+        <div class="flow-status"></div>
+        <div>
+          <div class="flow-name">Browse Abandonment</div>
+          <div class="flow-note">Re-engaging product page visitors passively</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p>Every new subscriber and customer is now in an automated journey — <strong>working 24/7</strong>, regardless of campaign activity.</p>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 6 — WHAT'S NEXT
+  ══════════════════════════════════════════════ -->
+  <section>
+    <p class="section-label">Section 06</p>
+    <h2>The Next 90 Days</h2>
+
+    <p>Warmup is done. The foundation is in place. The next phase is expansion — unlocking the broader list, supporting the upcoming drop calendar, and deepening automation.</p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">Jun 25</div>
+        <div class="timeline-content">
+          <div class="title">Sponge Drop</div>
+          <div class="desc">Upcoming product release — campaign + flow support</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Jul 2</div>
+        <div class="timeline-content">
+          <div class="title">Satoshi Drop</div>
+          <div class="desc">Segmented campaign strategy</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Jul 10</div>
+        <div class="timeline-content">
+          <div class="title">Puma Hali</div>
+          <div class="desc">Collaboration launch email support</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Jul 16</div>
+        <div class="timeline-content">
+          <div class="title">Alex Proba Rugs / Pillows</div>
+          <div class="desc">Lifestyle product launch — new audience segments</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Ongoing</div>
+        <div class="timeline-content">
+          <div class="title">Lead List Expansion</div>
+          <div class="desc">588k cleaned leads unlock progressively as Klaviyo's 90-day suppression ends. Phased send strategy to protect deliverability through scale.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Ongoing</div>
+        <div class="timeline-content">
+          <div class="title">SMS Program Launch</div>
+          <div class="desc">A2P 10DLC configured and ready. Launch timing: once email program fully stable.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Month 2</div>
+        <div class="timeline-content">
+          <div class="title">Post-Purchase Flow</div>
+          <div class="desc">Building next — cross-sell, loyalty, Sponge cross-promo for existing customers</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Month 3</div>
+        <div class="timeline-content">
+          <div class="title">Winback + Sunset</div>
+          <div class="desc">Re-engagement campaign for lapsed customers. Sunset the non-responders. Keep the list healthy long-term.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       CLOSING
+  ══════════════════════════════════════════════ -->
+  <div class="closing">
+    <h2>The foundation is built.<br>The list is warm.<br>The drops are coming.</h2>
+    <p>30 days. One list. Built from scratch, cleaned, warmed, and producing revenue from day one.</p>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════ -->
+  <footer>
+    <span>Prepared by DigitsUp</span>
+    <span>June 2026</span>
+    <span>Confidential</span>
+  </footer>
+
+</body>
+</html>
